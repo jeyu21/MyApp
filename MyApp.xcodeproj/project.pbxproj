@@ -13,6 +13,9 @@
 		8F9A47231F1D5A440011A8E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A47221F1D5A440011A8E6 /* Assets.xcassets */; };
 		8F9A47261F1D5A440011A8E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F9A47241F1D5A440011A8E6 /* LaunchScreen.storyboard */; };
 		8FB8449D1F1D792000517C41 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8449C1F1D792000517C41 /* tessdata */; };
+		8FF847C61F2670DC00728DD8 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF847C51F2670DC00728DD8 /* TesseractOCR.framework */; };
+		8FF847C81F2670F800728DD8 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF847C71F2670F800728DD8 /* libstdc++.6.0.9.tbd */; };
+		8FF847CA1F26710500728DD8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF847C91F26710500728DD8 /* CoreImage.framework */; };
 		B4E76C7AF5CA652EE723F3ED /* Pods_MyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1C3ECFB7C94F1D3050BBB3 /* Pods_MyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		8F9A47251F1D5A440011A8E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F9A47271F1D5A440011A8E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FB8449C1F1D792000517C41 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		8FF847C51F2670DC00728DD8 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = "../../Library/Developer/Xcode/DerivedData/MyApp-emkydmfxxedctrfllcgamgepvtdc/Build/Products/Debug-iphoneos/TesseractOCRiOS/TesseractOCR.framework"; sourceTree = "<group>"; };
+		8FF847C71F2670F800728DD8 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		8FF847C91F26710500728DD8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		DC1C3ECFB7C94F1D3050BBB3 /* Pods_MyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FF847CA1F26710500728DD8 /* CoreImage.framework in Frameworks */,
+				8FF847C81F2670F800728DD8 /* libstdc++.6.0.9.tbd in Frameworks */,
+				8FF847C61F2670DC00728DD8 /* TesseractOCR.framework in Frameworks */,
 				B4E76C7AF5CA652EE723F3ED /* Pods_MyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +95,9 @@
 		B6B4E7CC94A3A4C2AD0AFC30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FF847C91F26710500728DD8 /* CoreImage.framework */,
+				8FF847C71F2670F800728DD8 /* libstdc++.6.0.9.tbd */,
+				8FF847C51F2670DC00728DD8 /* TesseractOCR.framework */,
 				DC1C3ECFB7C94F1D3050BBB3 /* Pods_MyApp.framework */,
 			);
 			name = Frameworks;
@@ -268,6 +280,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4ZPA38Q8FH;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -320,6 +333,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4ZPA38Q8FH;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -349,6 +363,15 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-lstdc++",
+					"-framework",
+					"\"TesseractOCR\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.MyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -364,6 +387,15 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-lstdc++",
+					"-framework",
+					"\"TesseractOCR\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.MyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
